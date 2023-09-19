@@ -29,7 +29,7 @@ const Createtask = () => {
   }
 
   return (
-    <form className="flex my-4 items-center justify-center " onSubmit={handleSubmit}>
+    <form className="flex mt-5 mb-8 sm:mt-16 my-4 items-center justify-center " onSubmit={handleSubmit}>
       <input
         type="text"
         className="shadow-xl placeholder:text-slate-600 rounded-md focus:outline-slate-500 px-2 py-0.5 "
