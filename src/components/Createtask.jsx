@@ -12,9 +12,9 @@ const Createtask = () => {
   function handleSubmit(e) {
     e.preventDefault();
     if (task.name.length < 3)
-      return toast.error("Enter Aleast 3 Characters", { duration: 900 });
+      return toast.error("Enter Aleast 3 Characters");
     if (task.name.length > 100)
-      return toast.error("Task Must not greater than 100 characters", { duration: 900 });
+      return toast.error("Task Must not greater than 100 characters");
     settasks((tasks) => {
       let list = [...tasks, task];
       localStorage.setItem("tasks", JSON.stringify(list));
