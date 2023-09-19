@@ -5,7 +5,7 @@ function DarkModeComponent() {
   useEffect(() => {
     const options = {
       // Customize your dark mode settings here
-      bottom: '30px', // default: '32px'
+      bottom: '23px', // default: '32px'
       right: 'unset', // default: '32px'
       left: '15px', // default: 'unset'
       time: '1s', // default: '0.3s'

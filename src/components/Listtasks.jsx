@@ -70,7 +70,7 @@ function Section({ status }) {
   return (
     <div
       ref={drop}
-      className={`w-full shadow-2xl rounded-md py-2 sm:w-80 pb-6 h-fit bg-slate-500 mx-auto ${
+      className={`w-full shadow-2xl rounded-md py-2 sm:w-96 pb-6 h-fit bg-slate-500 mx-auto ${
         isOver ? "bg-gray-900 " : ""
       }`}
     >
