@@ -9,9 +9,7 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 import { TouchBackend } from "react-dnd-touch-backend";
 import Header from "./components/Header";
 import DarkModeComponent from "./components/DarkModeComponent";
-import SearchFilter from "./components/SearchFilter";
 import StatsDashboard from "./components/StatsDashboard";
-import ExportImport from "./components/ExportImport";
 import HelpModal from "./components/HelpModal";
 import AccessibilityEnhancer from "./components/AccessibilityEnhancer";
 import CelebrationRenderer, { useTaskCompletion } from "./components/CelebrationRenderer";
@@ -173,18 +171,13 @@ const App = () => {
               <Header />
 
               {/* Main Content */}
-              <div className="max-w-full px-2 py-4 space-y-4">
-                {/* Search and Filter */}
-                <div className="max-w-4xl mx-auto">
-                  <SearchFilter />
-                </div>
-
-                {/* Undo/Redo and Export Controls */}
-                <div className="max-w-4xl mx-auto flex flex-wrap gap-2 items-center justify-center">
+              <div className="max-w-full px-2 py-2 space-y-2 flex flex-col items-center overflow-y-auto flex-1">
+                {/* Undo/Redo Controls */}
+                <div className="max-w-4xl w-full flex flex-wrap gap-1.5 items-center justify-center">
                   <button
                     onClick={undo}
                     disabled={!contextValue.canUndo}
-                    className="btn-secondary text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="btn-secondary text-xs py-1.5 px-2 disabled:opacity-50 disabled:cursor-not-allowed"
                     title="Undo (Ctrl+Z)"
                     aria-label="Undo last action"
                   >
@@ -193,7 +186,7 @@ const App = () => {
                   <button
                     onClick={redo}
                     disabled={!contextValue.canRedo}
-                    className="btn-secondary text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="btn-secondary text-xs py-1.5 px-2 disabled:opacity-50 disabled:cursor-not-allowed"
                     title="Redo (Ctrl+Shift+Z)"
                     aria-label="Redo last undone action"
                   >
@@ -202,23 +195,18 @@ const App = () => {
                 </div>
 
                 {/* Statistics Dashboard */}
-                <div className="max-w-4xl mx-auto">
+                <div className="max-w-4xl w-full">
                   <StatsDashboard />
                 </div>
 
                 {/* Create Task */}
-                <div className="max-w-4xl mx-auto">
+                <div className="max-w-4xl w-full">
                   <Createtask />
                 </div>
 
-                {/* Kanban Board */}
-                <div className="max-w-full">
+                {/* Kanban Board - Centered with flex grow */}
+                <div className="w-full flex justify-center flex-1">
                   <Listtasks />
-                </div>
-
-                {/* Export/Import */}
-                <div className="max-w-4xl mx-auto">
-                  <ExportImport />
                 </div>
               </div>
 

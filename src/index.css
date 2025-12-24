@@ -31,12 +31,43 @@
   }
 }
 
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
   }
   to {
     opacity: 1;
+  }
+}
+
+@keyframes bounce-subtle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
   }
 }
 
@@ -72,12 +103,42 @@
   }
 }
 
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
 .animate-slideIn {
   animation: slideIn 0.3s ease-out;
 }
 
+.animate-slideInLeft {
+  animation: slideInLeft 0.3s ease-out;
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.3s ease-out;
+}
+
 .animate-fadeIn {
   animation: fadeIn 0.3s ease-out;
+}
+
+.animate-bounce-subtle {
+  animation: bounce-subtle 2s infinite;
 }
 
 .animate-pulse-glow {
@@ -90,6 +151,15 @@
 
 .animate-celebrate {
   animation: celebrate 1s ease-out;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-gradient-shift {
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
 }
 
 /* Smooth transitions */
@@ -111,7 +181,7 @@
 
 /* Buttons */
 .btn-primary {
-  @apply px-4 py-2 bg-blue-500 text-white rounded-lg transition-smooth hover:bg-blue-600 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+  @apply px-4 py-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg transition-smooth hover:shadow-lg hover:from-blue-600 hover:to-blue-700 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
 }
 
 .btn-secondary {
@@ -138,11 +208,11 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-gray-400 dark:bg-gray-600 rounded-full transition-smooth;
+  @apply bg-gradient-to-b from-blue-400 to-purple-400 dark:from-blue-600 dark:to-purple-600 rounded-full transition-smooth;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-gray-500 dark:bg-gray-500;
+  @apply from-blue-500 to-purple-500 dark:from-blue-700 dark:to-purple-700;
 }
 
 /* Dark mode improvements */
@@ -154,4 +224,30 @@
   .dark-mode-toggle {
     @apply text-yellow-300 hover:text-yellow-400;
   }
+}
+
+/* Responsive improvements */
+@media (max-width: 640px) {
+  .space-y-4 {
+    @apply space-y-2;
+  }
+}
+
+/* Task card hover effect */
+.task-card {
+  @apply transition-smooth;
+}
+
+.task-card:hover {
+  @apply -translate-y-1 shadow-lg;
+}
+
+/* Column hover glow */
+.column-hover {
+  @apply hover:shadow-2xl transition-smooth;
+}
+
+/* Focus outline for accessibility */
+:focus-visible {
+  @apply outline-2 outline-blue-500 outline-offset-2;
 }
